@@ -54,8 +54,61 @@
     <!-- Main-->
      <main class="container-fluid px-sm-5">
         <div class="row">
-            <div class="col-sm-8 bg-primary">colonna 1</div>
-            <div class="col-sm-4 bg-primary-subtle">cololonna 2</div>
+
+            <!-- Column 1-->
+            <div class="col-sm-8">
+
+
+                <h1>Richiesta Preventivo</h1>
+                <p>Compila il form per richiedere un preventivo per i nostri servizi di sviluppo.</p>
+                
+                <!--Form-->
+                <form>
+                    <div class="mb-3">
+                      <label for="inputName" class="form-label">Nome</label>
+                      <input type="text" class="form-control" id="inputName">
+                    </div>
+                    <div class="mb-3">
+                        <label for="inputLastName" class="form-label">Cognome</label>
+                        <input type="text" class="form-control" id="inputLastName">
+                      </div>
+                      <div class="mb-3">
+                        <label for="inputEmail" class="form-label">Email</label>
+                        <input type="email" class="form-control" id="inputEmail">
+                      </div>
+                      <div class="mb-3">
+                        <label for="select" class="form-label">Tipo di Lavoro</label>
+                        <select class="form-select">
+                          <option selected>Seleziona il tipo di lavoro</option>
+                          <option value="backed-development">Backed Development</option>
+                          <option value="frontend-development">Frontend Development</option>
+                          <option value="project-analysis">Project Analysis</option>
+                        </select>
+                      </div>
+                      <div class="mb-3">
+                        <label for="formControlTextarea" class="form-label">Textarea con Bootstrap 5</label>
+                        <textarea class="form-control" id="formControlTextarea" rows="3"></textarea>
+                      </div>
+                      <div class="mb-3">
+                        <label for="inputCode" class="form-label">Codice Promozionale (opzionale)</label>
+                        <input type="text" class="form-control" id="inputCode">
+                      </div>
+                    <div class="mb-3 form-check">
+                      <input type="checkbox" class="form-check-input" id="check">
+                      <label class="form-check-label" for="check">Accetto la Privacy Policy</label>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Calcola preventivo</button>
+                  </form>
+                <!--/Form-->
+
+
+            </div>
+            <!-- /Column 1-->
+
+            <!-- Column 2-->
+            <div class="col-sm-4">cololonna 2</div>
+            <!-- /Column 2-->
+
           </div>
      </main>
     <!-- /Main-->
