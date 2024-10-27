@@ -52,8 +52,34 @@ formQuoteRequest.addEventListener('submit', function(event){
         console.log('Non hai selezionato il tipo di lavoro')
     }
 
-    console.log(workTypeSelected.value);
 
-    console.log(pricePerHour);
+      console.log(isPromoCodeValid(userPromoCode.value, promoCode));
+      console.log(userPromoCode.value);
+
+
 })
+
+
+/* Creo una funzione per verificare se il codice inserito dall'utente sia valido o meno
+
+@param {array}
+@param {string}
+@returns {boolean}
+ * 
+ */
+
+function isPromoCodeValid(string, array){
+    
+    const arrayLength = array.length;
+
+    for (let i = 0; i < arrayLength; i++) { 
+       
+        if (string === array[i]) {
+            return true; // Restituisce true se il codice è trovato
+        }
+    }
+
+    return false; // Restituisce false se il codice non è trovato
+}
+
 
