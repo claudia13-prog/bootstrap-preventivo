@@ -10,6 +10,26 @@ Visualizzazione del risultato: Il prezzo finale deve essere mostrato con due dec
 
 */
 
+// Definisco variabili che utilizzerò per il calcolo del preventivo
+
+const workType = document.getElementById('work-type').value;
+
+let pricePerHour;
+
+const backendPricePerHour = 20.50;
+const frontendPricePerHour = 15.30;
+const analysisPricePerHour = 33.60;
+
+const workHour = 10;
+
+const promoCode = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
+
+let userPromoCode;
+
+
+
+
+
 // Calcolo del preventivo al momento dell'invio del form
 // Prendo l'elemento form e creo un'evento al click del button submit
 
