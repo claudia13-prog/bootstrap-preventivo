@@ -29,6 +29,17 @@ const userPromoCode = document.getElementById('inputCode');
 
 const discontPromoCode = 25;
 
+const finalPriceField = document.getElementById('final-price')
+
+const divElementString = document.createElement('div');
+divElementString.classList.add('fw-bold', 'fs-5');
+
+const divElementResult = document.createElement('div');
+divElementResult.classList.add('fw-bold', 'fs-2');
+
+
+finalPriceField.appendChild(divElementString);
+finalPriceField.appendChild(divElementResult);
 
 
 // Calcolo del preventivo al momento dell'invio del form
@@ -48,24 +59,42 @@ formQuoteRequest.addEventListener('submit', function(event){
         pricePerHour = frontendPricePerHour;
     } else if(workTypeSelected.value === "project-analysis"){
         pricePerHour = analysisPricePerHour;
-    } else{
-        console.log('Non hai selezionato il tipo di lavoro')
+    } else {
+
+          divElementString.innerHTML = 'Non hai selezionato il tipo di lavoro';
+          
+
     }
     
+
+    // Calcolo del prezzo finale 
+
     let finalPrice = pricePerHour * workHour;
+    
+    // Verifico se è stato utilizzato codice
 
     const promoCodeValid = isPromoCodeValid(userPromoCode.value, promoCode);
 
     console.log(promoCodeValid);
 
-    if(promoCodeValid === false){
+    if(userPromoCode.value.length === 0){
+
+        divElementString.innerHTML = 'Prezzo finale:';
+        divElementResult.innerHTML = `€ ${finalPrice}`;
+
+
+    } else if(promoCodeValid === false){
 
         console.log(`Codice non valido. Prezzo finale: ${finalPrice}`);
+        divElementString.innerHTML = 'Codice non valido. Prezzo finale:';
+        divElementResult.innerHTML = `€ ${finalPrice}`;
+    
 
     } else { 
 
         finalPrice -= finalPrice * (discontPromoCode / 100); 
-        console.log(`Prezzo finale: ${finalPrice}`);
+        divElementString.innerHTML = 'Prezzo finale:';
+        divElementResult.innerHTML = `€ ${finalPrice}`;
 
 
     }
