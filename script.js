@@ -51,10 +51,26 @@ formQuoteRequest.addEventListener('submit', function(event){
     } else{
         console.log('Non hai selezionato il tipo di lavoro')
     }
+    
+    let finalPrice = pricePerHour * workHour;
+
+    const promoCodeValid = isPromoCodeValid(userPromoCode.value, promoCode);
+
+    console.log(promoCodeValid);
+
+    if(promoCodeValid === false){
+
+        console.log(`Codice non valido. Prezzo finale: ${finalPrice}`);
+
+    } else { 
+
+        finalPrice -= finalPrice * (discontPromoCode / 100); 
+        console.log(`Prezzo finale: ${finalPrice}`);
 
 
-      console.log(isPromoCodeValid(userPromoCode.value, promoCode));
-      console.log(userPromoCode.value);
+    }
+
+
 
 
 })
