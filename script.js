@@ -12,7 +12,8 @@ Visualizzazione del risultato: Il prezzo finale deve essere mostrato con due dec
 
 // Definisco variabili che utilizzerò per il calcolo del preventivo
 
-const workType = document.getElementById('work-type');
+const workTypeSelected = document.getElementById('work-type');
+
 
 let pricePerHour;
 
@@ -37,9 +38,22 @@ const formQuoteRequest = document.getElementById('quote-request');
 
 formQuoteRequest.addEventListener('submit', function(event){
     event.preventDefault();
-    console.log('ho inviato form');
-    console.log(userPromoCode.value);
-    console.log(workType.value);
+    
+    // Verifico la selezione dell'utente e in base a quello salvo il prezzo orario in una variabile
+    // Da valutare utilizzo di un Array contenente i tipi di lavoro
 
+    if(workTypeSelected.value === "backend-development"){
+        pricePerHour = backendPricePerHour;
+    } else if(workTypeSelected.value === "frontend-development"){
+        pricePerHour = frontendPricePerHour;
+    } else if(workTypeSelected.value === "project-analysis"){
+        pricePerHour = analysisPricePerHour;
+    } else{
+        console.log('Non hai selezionato il tipo di lavoro')
+    }
+
+    console.log(workTypeSelected.value);
+
+    console.log(pricePerHour);
 })
 
