@@ -12,7 +12,7 @@ Visualizzazione del risultato: Il prezzo finale deve essere mostrato con due dec
 
 // Definisco variabili che utilizzerò per il calcolo del preventivo
 
-const workType = document.getElementById('work-type').value;
+const workType = document.getElementById('work-type');
 
 let pricePerHour;
 
@@ -24,9 +24,9 @@ const workHour = 10;
 
 const promoCode = ['YHDNU32', 'JANJC63', 'PWKCN25', 'SJDPO96', 'POCIE24'];
 
-let userPromoCode;
+const userPromoCode = document.getElementById('inputCode');
 
-
+const discontPromoCode = 25;
 
 
 
@@ -38,5 +38,8 @@ const formQuoteRequest = document.getElementById('quote-request');
 formQuoteRequest.addEventListener('submit', function(event){
     event.preventDefault();
     console.log('ho inviato form');
+    console.log(userPromoCode.value);
+    console.log(workType.value);
+
 })
 
