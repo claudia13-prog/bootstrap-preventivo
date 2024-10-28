@@ -49,6 +49,39 @@ const formQuoteRequest = document.getElementById('quote-request');
 
 formQuoteRequest.addEventListener('submit', function(event){
     event.preventDefault();
+
+
+        // Calcolo del prezzo finale 
+
+        let finalPrice = pricePerHour * workHour;
+    
+        // Verifico se è stato utilizzato codice
+    
+        const promoCodeValid = isPromoCodeValid(userPromoCode.value, promoCode);
+    
+        console.log(promoCodeValid);
+    
+        if(userPromoCode.value.length === 0){
+    
+            divElementString.innerHTML = 'Prezzo finale:';
+            divElementResult.innerHTML = `€ ${finalPrice}`;
+    
+    
+        } else if(promoCodeValid === false){
+    
+            console.log(`Codice non valido. Prezzo finale: ${finalPrice}`);
+            divElementString.innerHTML = 'Codice non valido. Prezzo finale:';
+            divElementResult.innerHTML = `€ ${finalPrice}`;
+        
+    
+        } else { 
+    
+            finalPrice -= finalPrice * (discontPromoCode / 100); 
+            divElementString.innerHTML = 'Prezzo finale:';
+            divElementResult.innerHTML = `€ ${finalPrice}`;
+    
+    
+        }
     
     // Verifico la selezione dell'utente e in base a quello salvo il prezzo orario in una variabile
     // Da valutare utilizzo di un Array contenente i tipi di lavoro
@@ -62,45 +95,16 @@ formQuoteRequest.addEventListener('submit', function(event){
     } else {
 
           divElementString.innerHTML = 'Non hai selezionato il tipo di lavoro';
-          
-
-    }
-    
-
-    // Calcolo del prezzo finale 
-
-    let finalPrice = pricePerHour * workHour;
-    
-    // Verifico se è stato utilizzato codice
-
-    const promoCodeValid = isPromoCodeValid(userPromoCode.value, promoCode);
-
-    console.log(promoCodeValid);
-
-    if(userPromoCode.value.length === 0){
-
-        divElementString.innerHTML = 'Prezzo finale:';
-        divElementResult.innerHTML = `€ ${finalPrice}`;
-
-
-    } else if(promoCodeValid === false){
-
-        console.log(`Codice non valido. Prezzo finale: ${finalPrice}`);
-        divElementString.innerHTML = 'Codice non valido. Prezzo finale:';
-        divElementResult.innerHTML = `€ ${finalPrice}`;
-    
-
-    } else { 
-
-        finalPrice -= finalPrice * (discontPromoCode / 100); 
-        divElementString.innerHTML = 'Prezzo finale:';
-        divElementResult.innerHTML = `€ ${finalPrice}`;
+          divElementResult.innerHTML = '';
 
 
     }
+    
 
 
 
+
+    // Quando ho finito il calcolo i campi devono essere svuotati
 
 })
 
