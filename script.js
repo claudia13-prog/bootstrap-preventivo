@@ -41,6 +41,14 @@ divElementResult.classList.add('fw-bold', 'fs-2');
 finalPriceField.appendChild(divElementString);
 finalPriceField.appendChild(divElementResult);
 
+const name = document.getElementById('inputName');
+const lastName = document.getElementById('inputLastName');
+const email = document.getElementById('inputEmail');
+
+const nameLabel = document.getElementById('name-label');
+const lastNameLabel = document.getElementById('lastname-label');
+const emailLabel = document.getElementById('email-label');
+
 
 // Calcolo del preventivo al momento dell'invio del form
 // Prendo l'elemento form e creo un'evento al click del button submit
@@ -50,11 +58,28 @@ const formQuoteRequest = document.getElementById('quote-request');
 formQuoteRequest.addEventListener('submit', function(event){
     event.preventDefault();
 
-    if(workTypeSelected.value === "Seleziona il tipo di lavoro"){
+    if(isAWord(name.value) === false){
+
+        nameLabel.innerHTML += ' non valido';
+        nameLabel.classList.add('text-danger');
+        name.classList.add('bg-danger-subtle');
+
+    }else if(isAWord(lastName.value) === false){
+
+        lastNameLabel.innerHTML += ' non valido';
+        lastNameLabel.classList.add('text-danger');
+        lastName.classList.add('bg-danger-subtle');
+   
+    }else if(isAnEmail(email.value) === false){
+
+        emailLabel.innerHTML += ' non valida';
+        emailLabel.classList.add('text-danger');
+        email.classList.add('bg-danger-subtle');
+
+    }else if(workTypeSelected.value === "Seleziona il tipo di lavoro"){
 
         divElementString.innerHTML = 'Non hai selezionato il tipo di lavoro';
-            divElementResult.innerHTML = '';
-
+        divElementResult.innerHTML = '';
 
 
     }else{
@@ -104,7 +129,7 @@ formQuoteRequest.addEventListener('submit', function(event){
         
         }
 
-    
+       
 })
 
 
