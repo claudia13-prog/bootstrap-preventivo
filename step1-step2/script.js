@@ -60,19 +60,19 @@ formQuoteRequest.addEventListener('submit', function(event){
 
     if(isAWord(name.value) === false){
 
-        nameLabel.innerHTML += ' non valido';
+        nameLabel.innerHTML = 'Nome non valido';
         nameLabel.classList.add('text-danger');
         name.classList.add('bg-danger-subtle');
 
     }else if(isAWord(lastName.value) === false){
 
-        lastNameLabel.innerHTML += ' non valido';
+        lastNameLabel.innerHTML = 'Cognome non valido';
         lastNameLabel.classList.add('text-danger');
         lastName.classList.add('bg-danger-subtle');
    
     }else if(isAnEmail(email.value) === false){
 
-        emailLabel.innerHTML += ' non valida';
+        emailLabel.innerHTML = 'Email non valida';
         emailLabel.classList.add('text-danger');
         email.classList.add('bg-danger-subtle');
 
@@ -146,7 +146,7 @@ formQuoteRequest.addEventListener('submit', function(event){
         
         }
 
-       
+  
 })
 
 
