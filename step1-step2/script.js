@@ -57,6 +57,22 @@ const formQuoteRequest = document.getElementById('quote-request');
 
 formQuoteRequest.addEventListener('submit', function(event){
     event.preventDefault();
+    
+    // Reset Nome valido
+    nameLabel.innerHTML = 'Nome';
+    nameLabel.classList.remove('text-danger');
+    name.classList.remove('bg-danger-subtle');
+
+    // Reset Cognome valido
+    lastNameLabel.innerHTML = 'Cognome';
+    lastNameLabel.classList.remove('text-danger');
+    lastName.classList.remove('bg-danger-subtle');
+
+    // Reset Email valida
+    emailLabel.innerHTML = 'Email';
+    emailLabel.classList.remove('text-danger');
+    email.classList.remove('bg-danger-subtle');
+
 
     if(isAWord(name.value) === false){
 
@@ -84,21 +100,6 @@ formQuoteRequest.addEventListener('submit', function(event){
 
     }else{
         
-        // Reset Nome valido
-        nameLabel.innerHTML = 'Nome';
-        nameLabel.classList.remove('text-danger');
-        name.classList.remove('bg-danger-subtle');
-    
-        // Reset Cognome valido
-        lastNameLabel.innerHTML = 'Cognome';
-        lastNameLabel.classList.remove('text-danger');
-        lastName.classList.remove('bg-danger-subtle');
-
-        // Reset Email valida
-        emailLabel.innerHTML = 'Email';
-        emailLabel.classList.remove('text-danger');
-        email.classList.remove('bg-danger-subtle');
-
 
              
     // Verifico la selezione dell'utente e in base a quello salvo il prezzo orario in una variabile
