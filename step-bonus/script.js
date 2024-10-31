@@ -67,8 +67,13 @@ const works = [
     }
 ];
 
-console.log(works);
+const worksLength = works.length;
 
+for(let i = 0; i < worksLength; i++){
+    const work = works[i].type;
+    console.log(work);
+    
+}
 
 // Calcolo del preventivo al momento dell'invio del form
 // Prendo l'elemento form e creo un'evento al click del button submit
