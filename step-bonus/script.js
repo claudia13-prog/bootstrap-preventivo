@@ -1,3 +1,4 @@
+
 /* Interazione con l'utente: Aggiungere un componente JavaScript per gestire il click sul bottone "submit" del form.
 Calcolo del preventivo: Quando l'utente invia il form, il sito calcola il preventivo basato su un numero fisso di ore di lavoro (10 ore).
 Prezzo orario:
@@ -13,7 +14,6 @@ Visualizzazione del risultato: Il prezzo finale deve essere mostrato con due dec
 // Definisco variabili che utilizzerò per il calcolo del preventivo
 
 const workTypeSelected = document.getElementById('work-type');
-
 
 let pricePerHour;
 
@@ -48,6 +48,26 @@ const email = document.getElementById('inputEmail');
 const nameLabel = document.getElementById('name-label');
 const lastNameLabel = document.getElementById('lastname-label');
 const emailLabel = document.getElementById('email-label');
+
+// STEP BONUS
+// Prova a generare dinamicamente le opzioni della select a partire da un oggetto js.
+
+const works = [
+    {
+        type: 'Backend Development',
+        price: 20.50,
+    },
+    {
+        type: 'Frontend Development',
+        price: 15.30,
+    },
+    {
+        type: 'Project Analysis',
+        price: 33.60,
+    }
+];
+
+console.log(works);
 
 
 // Calcolo del preventivo al momento dell'invio del form
