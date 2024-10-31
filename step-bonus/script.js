@@ -52,6 +52,8 @@ const emailLabel = document.getElementById('email-label');
 // STEP BONUS
 // Prova a generare dinamicamente le opzioni della select a partire da un oggetto js.
 
+// Creo un array di oggetti
+
 const works = [
     {
         type: 'Backend Development',
@@ -67,12 +69,17 @@ const works = [
     }
 ];
 
+// Creo un ciclo for per aggiungere i tipi di lavoro al tag html select
+
 const worksLength = works.length;
 
 for(let i = 0; i < worksLength; i++){
-    const work = works[i].type;
-    console.log(work);
-    
+    const work = works[i];
+    // creo il tag option
+    const workOption = document.createElement('option');
+    workOption.innerHTML = work.type;
+    // appendo il tag option al tag select già presente in html
+    workTypeSelected.appendChild(workOption);
 }
 
 // Calcolo del preventivo al momento dell'invio del form
