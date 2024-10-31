@@ -17,9 +17,9 @@ const workTypeSelected = document.getElementById('work-type');
 
 let pricePerHour;
 
-const backendPricePerHour = 20.50;
-const frontendPricePerHour = 15.30;
-const analysisPricePerHour = 33.60;
+//const backendPricePerHour = 20.50;
+//const frontendPricePerHour = 15.30;
+//const analysisPricePerHour = 33.60;
 
 const workHour = 10;
 
@@ -80,7 +80,7 @@ for(let i = 0; i < worksLength; i++){
     workOption.innerHTML = work.type;
     // appendo il tag option al tag select già presente in html
     workTypeSelected.appendChild(workOption);
-}
+};
 
 // Calcolo del preventivo al momento dell'invio del form
 // Prendo l'elemento form e creo un'evento al click del button submit
@@ -130,20 +130,18 @@ formQuoteRequest.addEventListener('submit', function(event){
         divElementResult.innerHTML = '';
 
 
-    }else{
+    }else{ 
         
 
              
     // Verifico la selezione dell'utente e in base a quello salvo il prezzo orario in una variabile
-
-
-        if(workTypeSelected.value === "backend-development"){
-            pricePerHour = backendPricePerHour;
-        } else if(workTypeSelected.value === "frontend-development"){
-            pricePerHour = frontendPricePerHour;
-        } else if(workTypeSelected.value === "project-analysis"){
-            pricePerHour = analysisPricePerHour;
+    
+    for(let i = 0; i < worksLength; i++){
+        
+        if(workTypeSelected.value === works[i].type){
+            pricePerHour = works[i].price;
         }
+    }
 
             // Calcolo del prezzo finale 
 
@@ -152,9 +150,7 @@ formQuoteRequest.addEventListener('submit', function(event){
             // Verifico se è stato utilizzato codice
         
             const promoCodeValid = isPromoCodeValid(userPromoCode.value, promoCode);
-        
-            console.log(promoCodeValid);
-        
+                
             if(userPromoCode.value.length === 0){
         
                 divElementString.innerHTML = 'Prezzo finale:';
