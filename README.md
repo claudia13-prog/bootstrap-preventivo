@@ -15,3 +15,6 @@
 - Codice promozionale: L'utente può inserire uno dei seguenti codici per uno sconto del 25%: YHDNU32, JANJC63, PWKCN25, SJDPO96, POCIE24.
 - Validazione del codice: Se il codice è valido, si applica lo sconto; altrimenti, viene informato l'utente che il codice non è valido e il prezzo finale è calcolato senza sconto.
 - Visualizzazione del risultato: Il prezzo finale deve essere mostrato con due decimali e il simbolo dell'euro.
+
+## Step BONUS
+Genera dinamicamente le opzioni della select a partire da un oggetto js.
