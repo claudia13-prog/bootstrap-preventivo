@@ -105,6 +105,7 @@ formQuoteRequest.addEventListener('submit', function(event){
     emailLabel.classList.remove('text-danger');
     email.classList.remove('bg-danger-subtle');
 
+    // Controllo validità dei campi nome, cognome, e email e tipologia di lavoro
 
     if(isAWord(name.value) === false){
 
@@ -216,9 +217,9 @@ function isPromoCodeValid(string, array){
 function isAWord(word){
 
     if (/[\d!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(word) || word.length < 2 || word.length > 50) {
-        return false;
+        return false;  // Restituisce falso se la parola contiene caratteri diversi da lettere, minore di 2 o maggiore di 50 lettere
     } else {
-        return true;
+        return true; // Altrimenti restituisce vero
     }
 }
 
@@ -231,12 +232,10 @@ function isAWord(word){
  */
 
 function isAnEmail(email){
-    if(email.length < 6){
-       return false;
-    }else if(/@.*\./.test(email)){
-        return true;
+    if(email.length >= 6 && /@.*\./.test(email)){
+        return true;    // Restituisce vero se la mail contiene un punto, una @ e almeno 6 lettere
     } else{
-        return false;
+        return false;   // Altrimenti restituisce falso
     }
 }
 
